@@ -3,6 +3,7 @@
 
 #include <QDebug>
 #include <QMainWindow>
+#include <QMessageBox>
 
 #include"obrero.h"
 #include"controlador.h"
@@ -24,5 +25,6 @@ private slots:
 
 private:
     Ui::Salarios *ui;
+    Controlador *m_controlador;
 };
 #endif // SALARIOS_H

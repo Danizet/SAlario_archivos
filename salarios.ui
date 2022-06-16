@@ -41,13 +41,13 @@ background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(31, 40, 95);
-background-color: rgb(85, 255, 255);</string>
+background-color: rgb(116, 116, 116);</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QWidget" name="widget_3" native="true">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(103, 69, 103);</string>
+          <string notr="true">background-color: rgb(106, 106, 106);</string>
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
@@ -58,7 +58,11 @@ background-color: rgb(85, 255, 255);</string>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="inNombre"/>
+           <widget class="QLineEdit" name="inNombre">
+            <property name="placeholderText">
+             <string>Ingrese el nombre del obrero</string>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
@@ -76,16 +80,19 @@ background-color: rgb(85, 255, 255);</string>
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 0);</string>
+          <string notr="true">background-color: rgb(106, 106, 106);</string>
          </property>
          <property name="title">
           <string>Jornada</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QRadioButton" name="iMatutina">
+           <widget class="QRadioButton" name="inMatutina">
             <property name="text">
              <string>Matutina</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -112,7 +119,7 @@ background-color: rgb(85, 255, 255);</string>
        <item>
         <widget class="QWidget" name="widget_4" native="true">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(170, 85, 127);</string>
+          <string notr="true">background-color: rgb(106, 106, 106);</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
@@ -131,7 +138,7 @@ background-color: rgb(85, 255, 255);</string>
           <item>
            <widget class="QPushButton" name="btnCalcular">
             <property name="text">
-             <string>Calcular</string>
+             <string>&amp;Calcular</string>
             </property>
            </widget>
           </item>
@@ -158,11 +165,18 @@ background-color: rgb(85, 255, 255);</string>
      <widget class="QWidget" name="widget_2" native="true">
       <property name="styleSheet">
        <string notr="true">color: rgb(31, 40, 95);
-background-color: rgb(255, 170, 127);</string>
+background-color: rgb(94, 94, 94);</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPlainTextEdit" name="outCAlculos"/>
+        <widget class="QPlainTextEdit" name="outCAlculos">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Resultado de los calculos</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

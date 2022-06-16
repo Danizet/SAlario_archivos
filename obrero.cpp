@@ -83,7 +83,7 @@ QString Obrero::toString()
     str.append("Jornada: " + jornada2String() + "\n");
     str.append("Horas: " + QString::number(m_horas) + "\n");
     str.append("Salario Bruto: $" + QString::number(m_salarioBruto) + "\n");
-    str.append("DEscuento: $" + QString::number(m_descuento) + "\n");
+    str.append("Descuento: $" + QString::number(m_descuento) + "\n");
     str.append("Salario Neto: $" + QString::number(m_salarioNeto) + "\n");
             return str;
 }
