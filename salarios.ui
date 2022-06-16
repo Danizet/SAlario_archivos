@@ -58,7 +58,7 @@ background-color: rgb(85, 255, 255);</string>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="inNombre"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
@@ -68,7 +68,7 @@ background-color: rgb(85, 255, 255);</string>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox"/>
+           <widget class="QSpinBox" name="inHoras"/>
           </item>
          </layout>
         </widget>
@@ -83,21 +83,24 @@ background-color: rgb(85, 255, 255);</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QRadioButton" name="radioButton">
+           <widget class="QRadioButton" name="iMatutina">
             <property name="text">
              <string>Matutina</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QRadioButton" name="radioButton_2">
+           <widget class="QRadioButton" name="inVespertina">
             <property name="text">
              <string>Vespertina</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QRadioButton" name="radioButton_3">
+           <widget class="QRadioButton" name="inNocturna">
             <property name="text">
              <string>Nocturna</string>
             </property>
@@ -126,7 +129,7 @@ background-color: rgb(85, 255, 255);</string>
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="btnCalcular">
             <property name="text">
              <string>Calcular</string>
             </property>
@@ -159,7 +162,7 @@ background-color: rgb(255, 170, 127);</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPlainTextEdit" name="plainTextEdit"/>
+        <widget class="QPlainTextEdit" name="outCAlculos"/>
        </item>
       </layout>
      </widget>
