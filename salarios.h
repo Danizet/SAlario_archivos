@@ -8,6 +8,9 @@
 
 #include"obrero.h"
 #include"controlador.h"
+#include "acerca.h"
+
+#define VERSION "0.2"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Salarios; }
@@ -31,6 +34,8 @@ private slots:
     void on_action_Salir_triggered();
 
     void on_actionGuardar_triggered();
+
+    void on_actionAcerca_de_Salarios_triggered();
 
 private:
     Ui::Salarios *ui;

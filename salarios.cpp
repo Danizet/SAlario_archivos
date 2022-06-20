@@ -114,8 +114,8 @@ void Salarios::on_actionGuardar_triggered()
     // Abrir un cuadro de dialogo para seleccionar el path y archivo a guardar
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
                                                    "Guardar calculos de salarios",
-                                                   QDir::home().absolutePath() + "/salarios.docx",
-                                                   "Archivo de texto (*.docx)");
+                                                   QDir::home().absolutePath() + "/salarios.txt",
+                                                   "Archivo de texto (*.txt)");
 
     // Crear un archivo File
     QFile archivo(nombreArchivo);
@@ -138,4 +138,15 @@ void Salarios::on_actionGuardar_triggered()
     }
 }
 
-//.docx
+
+void Salarios::on_actionAcerca_de_Salarios_triggered()
+{
+    //Crear un objeto del cuadro de dialogo
+    Acerca *dialog = new Acerca(this);
+    // Enviar datos a la otra ventana (Establecer version)
+    dialog->setVersion(VERSION);
+    //Mostrar la ventana en modo Modal(que se ejecute delante)
+    dialog->exec();
+
+}
+
