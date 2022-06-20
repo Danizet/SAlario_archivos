@@ -18,6 +18,32 @@ Salarios::~Salarios()
 
 void Salarios::on_btnCalcular_clicked()
 {
+    calculos();
+}
+
+
+void Salarios::on_actionNuevo_triggered()
+{
+    // Limpiar widgets
+    clean();
+    // Lipmiar ek texto de los calculos
+    ui->outCAlculos->clear();
+    // Mostrar mensaje en la barra de estado
+    ui->statusbar->showMessage("Nuevos calculos de salario", 3000);
+
+}
+
+void Salarios::clean()
+{
+    ui->inNombre->setText("");
+    ui->inHoras->setValue(0);
+    ui->inMatutina->setChecked(true); // Para que vuelva a matutina
+    ui->inNombre->setFocus(); // Para volver el cursor al nombre
+
+}
+
+void Salarios::calculos()
+{
     /*
     //Obrero modelo("Juan",25,TipoJornada::Matutina);
 
@@ -61,16 +87,55 @@ void Salarios::on_btnCalcular_clicked()
                     this,
                     "ERROR",
                     "No se peude calcular el salario");
-
     }
 
     // Limpiar widgets
-    ui->inNombre->setText("");
-    ui->inHoras->setValue(0);
-    ui->inMatutina->setChecked(true); // Para que vuelva a matutina
-    ui->inNombre->setFocus(); // Para volver el cursor al nombre
+    clean();
     // Mostrar mensaje en la barra de estado
     ui->statusbar->showMessage("Salario de" + nombre + " calculado.", 5000);
 
 }
 
+
+void Salarios::on_actionCalcular_triggered()
+{
+    calculos();
+}
+
+
+void Salarios::on_action_Salir_triggered()
+{
+    this->close();
+}
+
+
+void Salarios::on_actionGuardar_triggered()
+{
+    // Abrir un cuadro de dialogo para seleccionar el path y archivo a guardar
+    QString nombreArchivo = QFileDialog::getSaveFileName(this,
+                                                   "Guardar calculos de salarios",
+                                                   QDir::home().absolutePath() + "/salarios.docx",
+                                                   "Archivo de texto (*.docx)");
+
+    // Crear un archivo File
+    QFile archivo(nombreArchivo);
+    // Tratar arch. para escritura
+    if(archivo.open(QFile::WriteOnly | QFile::Truncate)){
+        // Crear un objeto 'stream' de texto
+        QTextStream salida(&archivo);
+        //Enviar los datos del resultado a la salida
+        salida << ui->outCAlculos->toPlainText();
+        //Mostrar mensaje en la barra de estados
+        ui->statusbar->showMessage("Archivo guardado en:" + nombreArchivo, 4000);
+        // Cerrar archivo
+        archivo.close();
+
+    }else {
+        // Mensaje de error
+        QMessageBox::warning(this,
+                             "Guardar archivo",
+                             "No se puede acceder al archivo para guardar los datos");
+    }
+}
+
+//.docx
