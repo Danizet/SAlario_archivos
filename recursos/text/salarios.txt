@@ -1,0 +1,48 @@
+Nombre: Federico 
+Jornada: Matutina
+Horas: 4
+Salario Bruto: $20.6
+Descuento: $1.957
+Salario Neto: $18.643
+
+Nombre: Marjorie
+Jornada: Nocturna
+Horas: 1
+Salario Bruto: $12.65
+Descuento: $1.20175
+Salario Neto: $11.4482
+
+Nombre: Yo Dayo 
+Jornada: Vespertina
+Horas: 7
+Salario Bruto: $59.5
+Descuento: $5.6525
+Salario Neto: $53.8475
+
+Nombre: Yo Dayo 
+Jornada: Vespertina
+Horas: 7
+Salario Bruto: $59.5
+Descuento: $5.6525
+Salario Neto: $53.8475
+
+Nombre: Yo Dayo 
+Jornada: Vespertina
+Horas: 7
+Salario Bruto: $59.5
+Descuento: $5.6525
+Salario Neto: $53.8475
+
+Nombre: Yo Dayo 
+Jornada: Vespertina
+Horas: 7
+Salario Bruto: $59.5
+Descuento: $5.6525
+Salario Neto: $53.8475
+
+Nombre: Yo Dayo 
+Jornada: Vespertina
+Horas: 7
+Salario Bruto: $59.5
+Descuento: $5.6525
+Salario Neto: $53.8475

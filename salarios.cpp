@@ -26,7 +26,7 @@ void Salarios::on_actionNuevo_triggered()
 {
     // Limpiar widgets
     clean();
-    // Lipmiar ek texto de los calculos
+    // Lipmiar el texto de los calculos
     ui->outCAlculos->clear();
     // Mostrar mensaje en la barra de estado
     ui->statusbar->showMessage("Nuevos calculos de salario", 3000);
@@ -96,26 +96,15 @@ void Salarios::calculos()
 
 }
 
-
-void Salarios::on_actionCalcular_triggered()
+void Salarios::save()
 {
-    calculos();
-}
 
-
-void Salarios::on_action_Salir_triggered()
-{
-    this->close();
-}
-
-
-void Salarios::on_actionGuardar_triggered()
-{
     // Abrir un cuadro de dialogo para seleccionar el path y archivo a guardar
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
-                                                   "Guardar calculos de salarios",
-                                                   QDir::home().absolutePath() + "/salarios.txt",
-                                                   "Archivo de texto (*.txt)");
+                                                         "Guardar calculos de salarios",
+                                                         QDir::home().absolutePath() +
+                                                         "/salarios.txt",
+                                                         "Archivo de texto (*.txt)");
 
     // Crear un archivo File
     QFile archivo(nombreArchivo);
@@ -126,7 +115,9 @@ void Salarios::on_actionGuardar_triggered()
         //Enviar los datos del resultado a la salida
         salida << ui->outCAlculos->toPlainText();
         //Mostrar mensaje en la barra de estados
-        ui->statusbar->showMessage("Archivo guardado en:" + nombreArchivo, 4000);
+        ui->statusbar->showMessage("Archivo guardado en:" +
+                                   nombreArchivo,
+                                   4000);
         // Cerrar archivo
         archivo.close();
 
@@ -138,6 +129,67 @@ void Salarios::on_actionGuardar_triggered()
     }
 }
 
+void Salarios::save_as()
+{
+    ///QString nombre = ui->inNombre->text();
+    ///int horas = ui->inHoras->value();
+    QString lala = ui->outCAlculos->toPlainText();
+    if(lala == ""){
+        this->close();
+    }else {
+       QMessageBox::StandardButton reply = QMessageBox::question(
+                    this,
+                    "Salir","Desea guardar el archivo",
+                   QMessageBox::Save | QMessageBox::Close | QMessageBox::Cancel);
+                     /*
+                    "Guardar" ,
+                    "No guardar",
+                    "Cancelar");
+                    */
+       if(reply == QMessageBox::Save ) {
+           save();
+       } else if (reply == QMessageBox::Cancel){
+           return;
+       } else{
+           this->close();
+       }
+/*
+void MainWindow::on_pushButton_clicked()
+
+    QMessageBox::StandardButton reply = QMessageBox::question(this,
+                                   "My Title", "This is my custom message",
+                          QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        QApplication::quit();
+    } else {
+        qDebug() << "No is clicked";
+    }
+}
+ *
+ * */
+
+    }
+
+}
+
+void Salarios::on_actionCalcular_triggered()
+{
+    calculos();
+}
+
+
+void Salarios::on_action_Salir_triggered()
+{
+    save_as();
+
+}
+
+
+void Salarios::on_actionGuardar_triggered()
+{
+    save();
+}
+
 
 void Salarios::on_actionAcerca_de_Salarios_triggered()
 {
@@ -147,6 +199,33 @@ void Salarios::on_actionAcerca_de_Salarios_triggered()
     dialog->setVersion(VERSION);
     //Mostrar la ventana en modo Modal(que se ejecute delante)
     dialog->exec();
+    // Luego de cerrar la ventana
 
 }
+
+
+void Salarios::on_actionAbrir_triggered()
+{
+    // Abrir un cuadro de dialogo para seleccionar el path y archivo a abrir
+    QString nombreArchivo1 = QFileDialog::getOpenFileName(this,
+                                                          "Abrir archivo de calculo de salarios",
+                                                          QDir::home().absolutePath(),
+                                                          "Archivo de texto (*.txt)");
+
+    QFile file(nombreArchivo1);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString linea = in.readLine();
+        ui->outCAlculos->appendPlainText(linea);
+    }
+    ui->statusbar->showMessage("Archivo:" + nombreArchivo1 + "abierto", 4000);
+    file.close() ;
+
+}
+
+
 
