@@ -86,7 +86,7 @@ void Salarios::calculos()
         QMessageBox::critical(
                     this,
                     "ERROR",
-                    "No se peude calcular el salario");
+                    "No se puede calcular el salario");
     }
 
     // Limpiar widgets
@@ -137,23 +137,23 @@ void Salarios::save_as()
     if(lala == ""){
         this->close();
     }else {
-       QMessageBox::StandardButton reply = QMessageBox::question(
+        QMessageBox::StandardButton reply = QMessageBox::question(
                     this,
                     "Salir","Desea guardar el archivo",
-                   QMessageBox::Save | QMessageBox::Close | QMessageBox::Cancel);
-                     /*
+                    QMessageBox::Save | QMessageBox::Close | QMessageBox::Cancel);
+        /*
                     "Guardar" ,
                     "No guardar",
                     "Cancelar");
                     */
-       if(reply == QMessageBox::Save ) {
-           save();
-       } else if (reply == QMessageBox::Cancel){
-           return;
-       } else{
-           this->close();
-       }
-/*
+        if(reply == QMessageBox::Save ) {
+            save();
+        } else if (reply == QMessageBox::Cancel){
+            return;
+        } else{
+            this->close();
+        }
+        /*
 void MainWindow::on_pushButton_clicked()
 
     QMessageBox::StandardButton reply = QMessageBox::question(this,
