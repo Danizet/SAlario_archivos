@@ -44,19 +44,7 @@ void Salarios::clean()
 
 void Salarios::calculos()
 {
-    /*
-    //Obrero modelo("Juan",25,TipoJornada::Matutina);
 
-    //qDebug() << modelo.toString();
-    Controlador control;
-    //control.setDatos("Juan",46,TipoJornada::Matutina);
-    control.calcular();
-    if (control.calcular()){
-        qDebug() << control.getDAtos();
-    } else{
-        qDebug() << "No se pudo calcular datos";
-    }
-    */
     QString nombre = ui->inNombre->text();
     int horas = ui->inHoras->value();
     TipoJornada jornada;
@@ -80,7 +68,6 @@ void Salarios::calculos()
     // Calcular salarios
     if (m_controlador->calcular()){
         //Muestra los resultados
-        //qDebug() << m_controlador->getDAtos();
         ui->outCAlculos->appendPlainText(m_controlador->getDAtos());
     } else{
         QMessageBox::critical(
@@ -153,23 +140,7 @@ void Salarios::save_as()
         } else{
             this->close();
         }
-        /*
-void MainWindow::on_pushButton_clicked()
-
-    QMessageBox::StandardButton reply = QMessageBox::question(this,
-                                   "My Title", "This is my custom message",
-                          QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes) {
-        QApplication::quit();
-    } else {
-        qDebug() << "No is clicked";
     }
-}
- *
- * */
-
-    }
-
 }
 
 void Salarios::on_actionCalcular_triggered()
