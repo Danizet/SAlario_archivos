@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>recursos/img/icono1.png</file>
         <file>recursos/img/icono2.png</file>
-        <file>recursos/idiomas/Salarios_ja.qm</file>
-        <file>recursos/idiomas/Salarios_ro.qm</file>
+        <file>Salarios_ja.qm</file>
+        <file>Salarios_ro.qm</file>
     </qresource>
 </RCC>
