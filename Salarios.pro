@@ -25,6 +25,10 @@ FORMS += \
     acerca.ui \
     salarios.ui
 
+TRANSLATIONS += \
+    Salarios_ro.ts \
+    Salarios_ja.ts
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

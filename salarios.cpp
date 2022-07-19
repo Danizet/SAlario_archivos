@@ -29,7 +29,7 @@ void Salarios::on_actionNuevo_triggered()
     // Lipmiar el texto de los calculos
     ui->outCAlculos->clear();
     // Mostrar mensaje en la barra de estado
-    ui->statusbar->showMessage("Nuevos calculos de salario", 3000);
+    ui->statusbar->showMessage(tr("Nuevos calculos de salario"), 3000);
 
 }
 
@@ -58,8 +58,8 @@ void Salarios::calculos()
     // Validacion de datos
     if(nombre == "" || horas == 0){
         QMessageBox::warning(this,
-                             "Advertencia",
-                             "El nombre y/o el numero de horas es incorrecto");
+                             tr("Advertencia"),
+                             tr("El nombre y/o el numero de horas es incorrecto"));
         return;
     }
 
@@ -72,14 +72,14 @@ void Salarios::calculos()
     } else{
         QMessageBox::critical(
                     this,
-                    "ERROR",
-                    "No se puede calcular el salario");
+                    tr("ERROR"),
+                    tr("No se puede calcular el salario"));
     }
 
     // Limpiar widgets
     clean();
     // Mostrar mensaje en la barra de estado
-    ui->statusbar->showMessage("Salario de" + nombre + " calculado.", 5000);
+    ui->statusbar->showMessage(tr("Salario de") + nombre + tr(" calculado"), 5000);
 
 }
 
@@ -88,10 +88,10 @@ void Salarios::save()
 
     // Abrir un cuadro de dialogo para seleccionar el path y archivo a guardar
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
-                                                         "Guardar calculos de salarios",
+                                                         tr("Guardar calculos de salarios"),
                                                          QDir::home().absolutePath() +
-                                                         "/salarios.txt",
-                                                         "Archivo de texto (*.txt)");
+                                                         tr("/salarios.txt"),
+                                                         tr("Archivo de texto (*.txt)"));
 
     // Crear un archivo File
     QFile archivo(nombreArchivo);
@@ -102,7 +102,7 @@ void Salarios::save()
         //Enviar los datos del resultado a la salida
         salida << ui->outCAlculos->toPlainText();
         //Mostrar mensaje en la barra de estados
-        ui->statusbar->showMessage("Archivo guardado en:" +
+        ui->statusbar->showMessage(tr("Archivo guardado en:") +
                                    nombreArchivo,
                                    4000);
         // Cerrar archivo
@@ -111,8 +111,8 @@ void Salarios::save()
     }else {
         // Mensaje de error
         QMessageBox::warning(this,
-                             "Guardar archivo",
-                             "No se puede acceder al archivo para guardar los datos");
+                             tr("Guardar archivo"),
+                             tr("No se puede acceder al archivo para guardar los datos"));
     }
 }
 
@@ -126,7 +126,8 @@ void Salarios::save_as()
     }else {
         QMessageBox::StandardButton reply = QMessageBox::question(
                     this,
-                    "Salir","Desea guardar el archivo",
+                    tr("Salir"),
+                    tr("Desea guardar el archivo"),
                     QMessageBox::Save | QMessageBox::Close | QMessageBox::Cancel);
         /*
                     "Guardar" ,
@@ -179,9 +180,9 @@ void Salarios::on_actionAbrir_triggered()
 {
     // Abrir un cuadro de dialogo para seleccionar el path y archivo a abrir
     QString nombreArchivo1 = QFileDialog::getOpenFileName(this,
-                                                          "Abrir archivo de calculo de salarios",
+                                                          tr("Abrir archivo de calculo de salarios"),
                                                           QDir::home().absolutePath(),
-                                                          "Archivo de texto (*.txt)");
+                                                          tr("Archivo de texto (*.txt)"));
 
     QFile file(nombreArchivo1);
 
@@ -193,7 +194,7 @@ void Salarios::on_actionAbrir_triggered()
         QString linea = in.readLine();
         ui->outCAlculos->appendPlainText(linea);
     }
-    ui->statusbar->showMessage("Archivo:" + nombreArchivo1 + "abierto", 4000);
+    ui->statusbar->showMessage(tr("Archivo:") + nombreArchivo1 + tr("abierto"), 4000);
     file.close() ;
 
 }

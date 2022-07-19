@@ -18,7 +18,7 @@ Acerca::~Acerca()
 void Acerca::setVersion(const QString &newVersion)
 {
     m_version = newVersion;
-    ui->outVersion->setText("v " + m_version);
+    ui->outVersion->setText(tr("v ") + m_version);
 }
 
 int Acerca::valor() const
